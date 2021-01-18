@@ -1,13 +1,32 @@
-import React from "react";
-
+import React, {useState, useEffect} from "react";
+import {useDebounce} from "../../hooks/useDebounce";
 import "./styles.scss";
+import {useDispatch, useSelector} from "react-redux";
+import types from "../../store/types/notes";
+
 
 
 function Content() {
 
+    const notes = useSelector((state) => state.notes);
+    const [text, setText] = useState(notes.notesList.find((note => note.id === notes.selectedNote)).content);
+    const dispatch = useDispatch();
+    const debouncedText = useDebounce(text, 300);
+    const handlerInput = (text) => {
+      setText(text);
+    };
+    useEffect(() => {
+        setText(notes.notesList.find((note => note.id === notes.selectedNote)).content);
+    }, [notes]);
+    useEffect(() => {
+        if(text !== notes.notesList.find((note => note.id === notes.selectedNote)).content) {
+            dispatch({type: types.SET_CONTENT, payload: {id: notes.selectedNote,content: debouncedText}});
+        }
+    }, [debouncedText]);
+
     return (
         <main className="content">
-            <textarea className="content__field"></textarea>
+            <textarea className="content__field" value={text} onChange={(e) => handlerInput(e.target.value)}></textarea>
         </main>
     );
 }

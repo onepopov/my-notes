@@ -1,0 +1,16 @@
+.note {
+  display: flex;
+
+  padding: 10px 20px;
+
+  color: #FFFFFF;
+
+  cursor: pointer;
+
+  &--selected {
+    background-color: #FDD760;
+    color: #150B03;
+  }
+
+
+}
