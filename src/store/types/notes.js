@@ -1,0 +1,6 @@
+export default {
+    ADD_NOTE: "ADD_NOTE",
+    CHANGE_TITLE: "CHANGE_TITLE",
+    SET_CONTENT: "SET_CONTENT",
+    SELECT_NOTE: "SELECT_NOTE"
+}

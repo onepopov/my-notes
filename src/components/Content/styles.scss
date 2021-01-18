@@ -1,0 +1,15 @@
+.content {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  &__field {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__field:first-line{
+    color: red;
+  }
+}
