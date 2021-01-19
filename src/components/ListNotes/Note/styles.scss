@@ -1,8 +1,10 @@
 .note {
   display: flex;
-
+  justify-content: space-between;
   padding: 10px 20px;
 
+
+  position: relative;
   color: #FFFFFF;
 
   cursor: pointer;
@@ -12,5 +14,28 @@
     color: #150B03;
   }
 
+  &__actions {
+    border: none;
+    background-color: #EECD63;
+    padding: 0;
+
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-left: 20px;
+
+    &::after {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #FFFFFF;
+
+      content: '\2807';
+
+    }
+  }
 
 }

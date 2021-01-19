@@ -9,11 +9,13 @@ const initState = {
 export function notes(state = initState, {type, payload}) {
     switch (type) {
         case types.ADD_NOTE:
-            return {...state, notesList: [...state.notesList, {id: uuidv4(), date: new Date(), content: "", title: "UNTITLED"}]};
+            const id = uuidv4();
+            return {...state, notesList: [...state.notesList, {id, date: new Date(), content: "", title: "UNTITLED", selectedNote: id}]};
+        case types.REMOVE_NOTE:
+            return {...state, notesList: state.notesList.slice().filter((item)=> item.id !== payload.id), selectedNote: ""};
         case types.SELECT_NOTE:
             return {...state, selectedNote: payload.id};
         case types.SET_CONTENT:
-            console.log("1")
             return {...state, notesList: state.notesList.map((note) => {
                     if(note.id === payload.id) {
                         return Object.assign({}, note, {
