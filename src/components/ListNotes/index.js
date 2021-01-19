@@ -4,6 +4,7 @@ import "./styles.scss";
 import AddIcon from "../../assets/note_add-24px.svg";
 import {useDispatch, useSelector} from "react-redux";
 import types from "../../store/types/notes";
+import Search from "../Search";
 
 function ListNotes() {
     const notes = useSelector(state => state.notes);
@@ -17,6 +18,7 @@ function ListNotes() {
         <ul>
             {notes.notesList.map(note => <Note selected={notes.selectedNote === note.id} note={note} key={note.id}/>)}
         </ul>
+        <Search/>
     </nav>)
 }
 

@@ -8,7 +8,17 @@
 
   overflow-y: scroll;
 
+  &::-webkit-scrollbar {
+    width: 5px; /* ширина для вертикального скролла */
 
+    background-color: #252525;
+  }
+
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #FDD760;
+    border-radius: 9em;
+  }
   &__btn-add {
 
     display: flex;
