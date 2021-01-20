@@ -10,10 +10,10 @@
     flex-grow: 1;
 
     font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
 
     border: none;
-    padding: 0 10px;
+    padding: 10px 30px;
 
     &:focus {
       outline: none;
@@ -24,7 +24,9 @@
     flex-grow: 40;
     line-height: 2em;
 
-    padding: 10px;
+    font-size: 16px;
+
+    padding: 20px 30px;
     &:focus {
       outline: none;
     }

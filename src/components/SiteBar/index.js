@@ -18,10 +18,11 @@ function SiteBar() {
         openPopup(false);
     };
     const search = (query) => {
-        setLists((state) => notes.notesList.filter((note => note.title.indexOf(query) !== -1)));
+        setLists((state) => notes.notesList.filter((note => note.title.toLowerCase().indexOf(query.toLowerCase()) !== -1)));
     };
     const contextHandler = (e) => {
         e.preventDefault();
+        dispatch({type: types.SELECT_NOTE, payload: {id: ""}});
         openContext(e.pageX, e.pageY);
     };
     const openContext = (x,y) => {
@@ -43,9 +44,9 @@ function SiteBar() {
 
     return(<nav className="site-bar">
         <ul className="site-bar__list" onContextMenu={contextHandler} onClick={handleReset} >
-            {searchedNotes.map(note => <Note  contextHandler={contextHandler} addNote={addNote} selected={notes.selectedNote === note.id} note={note} key={note.id}/>)}
+            {searchedNotes.map(note => <Note  contextHandler={contextHandler} addNote={addNote}  selected={notes.selectedNote === note.id} note={note} key={note.id}/>)}
         </ul>
-        {isOpenPopup && <Popup selectedNote={notes.selectedNote}  positionContext={positionContext} addNote={addNote}/>}
+        {isOpenPopup && <Popup selectedNote={notes.selectedNote} openPopup={openPopup}  positionContext={positionContext} addNote={addNote}/>}
         <Search search={search}/>
     </nav>)
 }
