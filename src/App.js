@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./index.scss";
-import ListNotes from "./components/ListNotes";
+import ListNotes from "./components/SiteBar";
 import Content from "./components/Content";
 
 function App() {

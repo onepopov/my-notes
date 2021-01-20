@@ -1,0 +1,29 @@
+.popup {
+  position: absolute;
+  right: 50px;
+  width: 100px;
+
+  z-index: 999;
+
+  border: 1px solid #D9D8D8;
+  border-radius: 5px;
+  box-shadow: -1px 10px 42px 23px rgba(34, 60, 80, 0.29);
+
+  button {
+    width: 100%;
+    padding: 5px 0;
+    color: #3F3F44;
+    background: #F0EDE8;
+    border: none;
+    border-bottom: 1px solid #D9D8D8;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background: #2F86FD;
+      color: #FFFFFF;
+    }
+  }
+}

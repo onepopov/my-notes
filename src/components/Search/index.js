@@ -15,7 +15,7 @@ function Search({search}) {
             search(debouncedQuery);
     }, [debouncedQuery]);
     return(<div className="search">
-        <input className="search__input" type="text" onChange={handleInput}/>
+        <input className="search__input" placeholder="Search everywhere"  type="text" onChange={handleInput}/>
     </div>)
 }
 

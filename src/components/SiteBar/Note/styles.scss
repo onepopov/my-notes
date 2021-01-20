@@ -25,6 +25,9 @@
     border-radius: 4px;
     margin-left: 20px;
 
+    &:focus {
+      outline: none;
+    }
     &::after {
       display: flex;
       position: absolute;

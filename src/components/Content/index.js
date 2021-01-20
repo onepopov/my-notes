@@ -51,7 +51,7 @@ function Content() {
     return (
         <main className="content">
             {selectedNote ? <>
-                <input className="content__title" type="text" value={title} onChange={(e) => handlerTitle(e.target.value)}/>
+                <input className="content__title" placeholder="Enter title of note" type="text" value={title} onChange={(e) => handlerTitle(e.target.value)}/>
                 <textarea className="content__field" value={text} onChange={(e) => handlerInput(e.target.value)}></textarea>
                 </> : <section className="content__info">Note not selected</section>    }
         </main>
