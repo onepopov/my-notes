@@ -14,7 +14,7 @@ function Content() {
 
     const notes = useSelector((state) => state.notes);
     const selectedNote = notes.notesList.find((note) => note.id === notes.selectedNote);
-    const [text, setText] = useState(selectedNote ? selectedNote.content : "");
+    const [text, setText] = useState(selectedNote ? selectedNote.content : null);
     const [title, setTitle] = useState(selectedNote ? selectedNote.title : "Untitled");
     const dispatch = useDispatch();
     const debouncedContent = useDebounce(text, 300);
@@ -50,8 +50,10 @@ function Content() {
 
     return (
         <main className="content">
-            <input className="content__title" type="text" value={title} onChange={(e) => handlerTitle(e.target.value)}/>
-            <textarea className="content__field" value={text} onChange={(e) => handlerInput(e.target.value)}></textarea>
+            {selectedNote ? <>
+                <input className="content__title" type="text" value={title} onChange={(e) => handlerTitle(e.target.value)}/>
+                <textarea className="content__field" value={text} onChange={(e) => handlerInput(e.target.value)}></textarea>
+                </> : <section className="content__info">Note not selected</section>    }
         </main>
     );
 }
