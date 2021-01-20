@@ -1,0 +1,18 @@
+.search {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+
+
+  &__input {
+    border: none;
+    border-radius: 4px;
+    background: #343233;
+    color: #FFFFFF;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+}

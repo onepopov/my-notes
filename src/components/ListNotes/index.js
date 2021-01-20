@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {  useEffect, useState  } from "react";
 import Note from "./Note";
 import "./styles.scss";
 import AddIcon from "../../assets/note_add-24px.svg";
@@ -10,13 +10,17 @@ import Search from "../Search";
 function ListNotes() {
     const notes = useSelector(state => state.notes);
     const mainDispatch = useDispatch();
-    const [searchedNotes, setLists] = useState(notes ? notes.notesList : []);
+    const [searchedNotes, setLists] = useState( notes.notesList);
     const addNote = () => {
         mainDispatch({type: types.ADD_NOTE});
     };
     const search = (query) => {
         setLists((state) => notes.notesList.filter((note => note.title.indexOf(query) !== -1)));
     };
+
+    useEffect(() => {
+        setLists(notes.notesList);
+    }, [notes]);
 
 
     return(<nav className="list">

@@ -1,12 +1,17 @@
 .content {
+  display: flex;
+  flex-direction: column;
   width: 100%;
 
   border: none;
   outline: none;
-
+  &__title {
+    flex-grow: 1;
+  }
   &__field {
     width: 100%;
-    height: 100%;
+    flex-grow: 40;
+
   }
 
   &__field:first-line{
