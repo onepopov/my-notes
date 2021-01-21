@@ -53,7 +53,7 @@ function Content() {
             {selectedNote ? <>
                 <input className="content__title" placeholder="Enter title of note" type="text" value={title} onChange={(e) => handlerTitle(e.target.value)}/>
                 <textarea placeholder="What's new with you?" className="content__field" value={text} onChange={(e) => handlerInput(e.target.value)}></textarea>
-                </> : <section className="content__info">Note not selected</section>    }
+                </> : <section className="content__info">Not found note</section>    }
         </main>
     );
 }

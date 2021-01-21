@@ -6,16 +6,23 @@
   position: relative;
   color: #FFFFFF;
 
+  min-height: 20px;
+
 
   cursor: pointer;
 
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
 
   &--selected {
     background-color: #FDD760;
     color: #150B03;
+  }
+
+  &__title {
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__actions {
@@ -23,7 +30,8 @@
     background-color: #EECD63;
     padding: 0;
 
-    position: relative;
+    position: absolute;
+    right: 10px;
     width: 20px;
     height: 20px;
     border-radius: 4px;
