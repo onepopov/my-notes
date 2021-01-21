@@ -19,7 +19,7 @@ function SiteBar() {
         openPopup(false);
     };
     const search = (query) => {
-        setLists((state) => notes.notesList.filter((note => note.title.toLowerCase().indexOf(query.toLowerCase()) !== -1)));
+        setLists((state) => notes.notesList.filter((note => note.title.toLowerCase().indexOf(query.trim().toLowerCase()) !== -1)));
     };
     const contextHandler = (e) => {
         e.preventDefault();
@@ -39,7 +39,7 @@ function SiteBar() {
     };
 
     useEffect(() => {
-        setLists(notes.notesList.filter((note => note.title.toLowerCase().indexOf(query.toLowerCase()) !== -1)));
+        setLists(notes.notesList.filter((note => note.title.toLowerCase().indexOf(query.trim().toLowerCase()) !== -1)));
     }, [notes]);
 
 
