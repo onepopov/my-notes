@@ -12,6 +12,7 @@ function SiteBar() {
     const dispatch = useDispatch();
     const [searchedNotes, setLists] = useState( notes.notesList);
     const [isOpenPopup, openPopup] = useState(false);
+    const [query, setQuery] = useState("");
     const [positionContext, setPositionContext] = useState({left: "100px", top: "100px"});
     const addNote = () => {
         dispatch({type: types.ADD_NOTE});
@@ -38,7 +39,7 @@ function SiteBar() {
     };
 
     useEffect(() => {
-        setLists(notes.notesList);
+        setLists(notes.notesList.filter((note => note.title.toLowerCase().indexOf(query.toLowerCase()) !== -1)));
     }, [notes]);
 
 
@@ -47,7 +48,7 @@ function SiteBar() {
             {searchedNotes.map(note => <Note contextHandler={contextHandler} addNote={addNote}  selected={notes.selectedNote === note.id} note={note} key={note.id}/>)}
         </ul>
         {isOpenPopup && <Popup selectedNote={notes.selectedNote} openPopup={openPopup}  positionContext={positionContext} addNote={addNote}/>}
-        <Search search={search}/>
+        <Search query={query} setQuery={setQuery} search={search}/>
     </nav>)
 }
 

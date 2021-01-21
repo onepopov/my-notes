@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
 import "./styles.scss";
 import {useDebounce} from "../../hooks/useDebounce";
-import {useDispatch} from "react-redux";
 
-function Search({search}) {
-    const [query, setQuery] = useState("");
+
+function Search({search, setQuery, query}) {
     const debouncedQuery = useDebounce(query, 300);
 
     const handleInput = (e) => {
