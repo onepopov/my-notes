@@ -46,7 +46,7 @@ function SiteBar() {
 
     return(<nav className="site-bar">
         <ul className="site-bar__list" onContextMenu={contextHandler} onClick={handleReset} >
-            {searchedNotes.map(note => <Note contextHandler={contextHandler} addNote={addNote}  selected={notes.selectedNote === note.id} note={note} key={note.id}/>)}
+            {searchedNotes.map(note => <Note isOpenPopup={isOpenPopup} openPopup={openPopup} contextHandler={contextHandler} addNote={addNote}  selected={notes.selectedNote === note.id} note={note} key={note.id}/>)}
         </ul>
         {isOpenPopup && <Popup selectedNote={selectedNote} openPopup={openPopup}  positionContext={positionContext} addNote={addNote}/>}
         <Search query={query} setQuery={setQuery} search={search}/>
