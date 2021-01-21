@@ -4,14 +4,13 @@ import {useDispatch, useSelector} from "react-redux";
 import types from "../../../store/types/notes";
 
 function Popup({addNote, positionContext, selectedNote, openPopup}) {
-    const notes = useSelector(state => state.notes);
     const dispatch = useDispatch();
     const deleteNote = () => {
-        dispatch({type: types.REMOVE_NOTE, payload: {id: notes.selectedNote}});
+        dispatch({type: types.REMOVE_NOTE, payload: {id: selectedNote.id}});
         openPopup(false);
     };
     const blockNote = () => {
-        dispatch({type: types.SET_BLOCKED, payload: {id: notes.selectedNote}});
+        dispatch({type: types.SET_BLOCKED, payload: {id: selectedNote.id}});
         openPopup(false);
     };
     return(<div className="popup" style={positionContext}>

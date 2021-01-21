@@ -13,6 +13,7 @@
 
 
 
+
   &--selected {
     background-color: #FDD760;
     color: #150B03;
@@ -23,6 +24,11 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  &__block {
+    position: absolute;
+    right: 40px;
   }
 
   &__actions {
