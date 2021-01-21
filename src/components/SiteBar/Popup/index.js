@@ -10,11 +10,15 @@ function Popup({addNote, positionContext, selectedNote, openPopup}) {
         dispatch({type: types.REMOVE_NOTE, payload: {id: notes.selectedNote}});
         openPopup(false);
     };
+    const blockNote = () => {
+        dispatch({type: types.SET_BLOCKED, payload: {id: notes.selectedNote}});
+        openPopup(false);
+    };
     return(<div className="popup" style={positionContext}>
         <button onClick={addNote}>New Note</button>
         {selectedNote && <>
             <button onClick={deleteNote}>Delete</button>
-            <button>Lock this note</button>
+            <button onClick={blockNote}>{selectedNote.blocked ? "Unlock this note" : "Lock this note"}</button>
         </>}
 
     </div>)

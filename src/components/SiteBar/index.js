@@ -11,6 +11,7 @@ function SiteBar() {
     const notes = useSelector(state => state.notes);
     const dispatch = useDispatch();
     const [searchedNotes, setLists] = useState( notes.notesList);
+    const selectedNote = notes.notesList.find((note) => note.id === notes.selectedNote);
     const [isOpenPopup, openPopup] = useState(false);
     const [query, setQuery] = useState("");
     const [positionContext, setPositionContext] = useState({left: "100px", top: "100px"});
@@ -47,7 +48,7 @@ function SiteBar() {
         <ul className="site-bar__list" onContextMenu={contextHandler} onClick={handleReset} >
             {searchedNotes.map(note => <Note contextHandler={contextHandler} addNote={addNote}  selected={notes.selectedNote === note.id} note={note} key={note.id}/>)}
         </ul>
-        {isOpenPopup && <Popup selectedNote={notes.selectedNote} openPopup={openPopup}  positionContext={positionContext} addNote={addNote}/>}
+        {isOpenPopup && <Popup selectedNote={selectedNote} openPopup={openPopup}  positionContext={positionContext} addNote={addNote}/>}
         <Search query={query} setQuery={setQuery} search={search}/>
     </nav>)
 }

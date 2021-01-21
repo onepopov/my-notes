@@ -10,7 +10,7 @@ export function notes(state = initState, {type, payload}) {
     switch (type) {
         case types.ADD_NOTE:
             const id = uuidv4();
-            return {...state, notesList: [...state.notesList, {id, date: new Date(), content: "", title: "Untitled", selectedNote: id}]};
+            return {...state, notesList: [...state.notesList, {id, date: new Date(), content: "", title: "Untitled", selectedNote: id, blocked: false}]};
         case types.REMOVE_NOTE:
             return {...state, notesList: state.notesList.slice().filter((item)=> item.id !== payload.id), selectedNote: ""};
         case types.SELECT_NOTE:
@@ -20,6 +20,15 @@ export function notes(state = initState, {type, payload}) {
                     if(note.id === payload.id) {
                         return Object.assign({}, note, {
                             title: payload.title
+                        });
+                    }
+                    return note;
+                })};
+        case types.SET_BLOCKED:
+            return {...state, notesList: state.notesList.map((note) => {
+                    if(note.id === payload.id) {
+                        return Object.assign({}, note, {
+                            blocked: !note.blocked
                         });
                     }
                     return note;
