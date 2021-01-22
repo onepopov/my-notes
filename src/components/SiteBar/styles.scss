@@ -6,7 +6,6 @@
 
 
 
-
   height: 100%;
 
   &__list {
@@ -16,6 +15,8 @@
     max-height: 90%;
     min-height: 90%;
 
+    scrollbar-color: #FDD760 #252525;
+    scrollbar-width: thin;
     width: 230px;
     &::-webkit-scrollbar {
       width: 5px;
