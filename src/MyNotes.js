@@ -4,7 +4,7 @@ import "./index.scss";
 import ListNotes from "./components/SiteBar";
 import Content from "./components/Content";
 
-function App() {
+function MyNotes() {
 
   return (
     <div className="container">
@@ -14,4 +14,4 @@ function App() {
   );
 }
 
-export default App;
+export default MyNotes;

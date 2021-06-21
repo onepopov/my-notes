@@ -1,12 +1,9 @@
 import React, {useState, useEffect} from "react";
-import {useDebounce} from "../../hooks/useDebounce";
-
-import "./styles.scss";
-
 import {useDispatch, useSelector} from "react-redux";
 
+import {useDebounce} from "../../hooks/useDebounce";
 import types from "../../store/types/notes";
-
+import "./styles.scss";
 
 
 
@@ -51,9 +48,23 @@ function Content() {
     return (
         <main className="content">
             {selectedNote ? <>
-                <input readOnly={selectedNote.blocked} className="content__title" placeholder="Enter title of note" type="text" value={title} onChange={(e) => handlerTitle(e.target.value)}/>
-                <textarea readOnly={selectedNote.blocked} placeholder="What's new with you?" className="content__field" value={text} onChange={(e) => handlerInput(e.target.value)}></textarea>
-                </> : <section className="content__info">Not found note</section>    }
+                <input
+                    readOnly={selectedNote.blocked}
+                    className="content__title"
+                    placeholder="Enter title of note"
+                    type="text"
+                    value={title}
+                    onChange={(e) => handlerTitle(e.target.value)
+                    }
+                />
+                <textarea
+                    readOnly={selectedNote.blocked}
+                    placeholder="What's new with you?"
+                    className="content__field"
+                    value={text}
+                    onChange={(e) => handlerInput(e.target.value)}
+                />
+                </> : <section className="content__info">Not found note</section>}
         </main>
     );
 }
